@@ -10,10 +10,10 @@
     tools:context=".MainActivity">
 
     <EditText
+        android:id="@+id/et_search_box"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <!--TODO (7) Add an EditText-->
     <!--TODO (8) Give the EditText an id of @+id/et_search_box-->
     <!--TODO (9) Set the text size to 22sp-->
     <!--TODO (10) Set the width to match_parent and the height to wrap_content-->
