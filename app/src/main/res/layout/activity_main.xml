@@ -13,10 +13,9 @@
         android:id="@+id/et_search_box"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter you query"
+        android:hint="Enter you query!"
         android:textSize="22sp" />
 
-    <!--TODO (10) Set the width to match_parent and the height to wrap_content-->
     <!--TODO (11) Provide a hint telling the user to enter a query and then click search-->
 
     <!--TODO (12) Add a TextView-->
