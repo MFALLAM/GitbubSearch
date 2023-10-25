@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Github_search</string>
+    <string name="enter_you_query"><font size="15">Enter you query!</font></string>
 </resources>

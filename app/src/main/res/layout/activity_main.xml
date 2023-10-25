@@ -13,10 +13,10 @@
         android:id="@+id/et_search_box"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter you query!"
+        android:hint="@string/enter_you_query"
         android:textSize="22sp" />
 
-    <!--TODO (11) Provide a hint telling the user to enter a query and then click search-->
+
 
     <!--TODO (12) Add a TextView-->
     <!--TODO (13) Give the TextView an id of @+id/tv_url_display-->
