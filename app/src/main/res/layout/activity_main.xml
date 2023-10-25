@@ -12,9 +12,10 @@
     <EditText
         android:id="@+id/et_search_box"
         android:layout_width="match_parent"
-        android:textSize="22sp"
-        android:layout_height="wrap_content"/>
-    
+        android:layout_height="wrap_content"
+        android:hint="Enter you query"
+        android:textSize="22sp" />
+
     <!--TODO (10) Set the width to match_parent and the height to wrap_content-->
     <!--TODO (11) Provide a hint telling the user to enter a query and then click search-->
 
