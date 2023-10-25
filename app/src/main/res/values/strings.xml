@@ -4,4 +4,5 @@
         <font size="15">Enter you query!</font>
     </string>
     <string name="make_a_search">Make a search!</string>
+    <string name="search">Search</string>
 </resources>
