@@ -16,6 +16,10 @@
         android:hint="@string/enter_you_query"
         android:textSize="22sp" />
 
+    <TextView
+        android:id="@+id/tv_url_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 
     <!--TODO (12) Add a TextView-->
