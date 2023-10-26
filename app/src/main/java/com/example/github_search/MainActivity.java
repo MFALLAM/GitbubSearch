@@ -45,13 +45,13 @@ public class MainActivity extends AppCompatActivity {
         if (itemSelected == R.id.action_search) {
             Context context = MainActivity.this;
             String textToShow = "Search clicked";
-            Toast.makeText(context, textToShow, Toast.LENGTH_LONG).show();
+            makeGithubSearchQuery();
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    public void makeGithubSearchQuery(String query) {
+    public void makeGithubSearchQuery() {
         String githubQuery = mSearchBoxEditText.getText().toString();
         URL githubSearchUrl = NetworkUtils.buildUrl(githubQuery);
         mUrlDisplayTextView.setText(githubSearchUrl.toString());
