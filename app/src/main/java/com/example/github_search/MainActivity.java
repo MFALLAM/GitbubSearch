@@ -1,21 +1,24 @@
 package com.example.github_search;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.github_search.utilities.NetworkUtils;
 
+import java.io.IOException;
 import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
+
+    private final static String TAG = "MyActivity";
 
     private TextView mUrlDisplayTextView;
     private TextView mSearchResultsTextView;
@@ -43,8 +46,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int itemSelected = item.getItemId();
         if (itemSelected == R.id.action_search) {
-            Context context = MainActivity.this;
-            String textToShow = "Search clicked";
             makeGithubSearchQuery();
             return true;
         }
@@ -53,8 +54,34 @@ public class MainActivity extends AppCompatActivity {
 
     public void makeGithubSearchQuery() {
         String githubQuery = mSearchBoxEditText.getText().toString();
+        mUrlDisplayTextView.setText(githubQuery);
+
         URL githubSearchUrl = NetworkUtils.buildUrl(githubQuery);
         mUrlDisplayTextView.setText(githubSearchUrl.toString());
+        new GithubQueryTask().execute(githubSearchUrl);
+
     }
 
+    public class GithubQueryTask extends AsyncTask<URL, Void, String> {
+
+        @Override
+        protected String doInBackground(URL... urls) {
+            URL searchUrl = urls[0];
+            String githubSearchResults = null;
+            try {
+                githubSearchResults = NetworkUtils.getResponseFromHttpUrl(searchUrl);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return githubSearchResults;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            if (s != null && !s.equals("")) {
+                mSearchResultsTextView.setText(s);
+            }
+
+        }
+    }
 }
